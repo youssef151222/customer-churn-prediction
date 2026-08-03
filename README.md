@@ -96,7 +96,7 @@ Place them inside the **images/** folder.
 
 Example:
 
-![Confusion Matrix](images/confusion_matrix.png)
+![Confusion Matrix](project_overview.png.pdf)
 
 ---
 
@@ -126,8 +126,7 @@ customer-churn-prediction/
 ├── data/
 ├── images/
 ├── notebook/
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 
 ---
