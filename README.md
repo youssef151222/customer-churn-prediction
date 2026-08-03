@@ -1,101 +1,141 @@
 # Customer Churn Prediction
 
-مشروع تعلم آلي لتوقع احتمال ترك العملاء (Customer Churn) باستخدام نماذج تصنيف.
+## 📌 Project Overview
 
-## وصف المشروع
+Customer churn is one of the biggest challenges for subscription-based businesses. This project aims to predict whether a customer is likely to leave the company based on demographic information, account details, and subscribed services.
 
-هذا المشروع يهدف لبناء نموذج يستطيع التنبؤ بما إذا كان العميل سيترك الخدمة أم لا بناءً على بيانات سلوك العميل وخصائصه. تم تجربة عدة نماذج تصنيف (مثل Logistic Regression, Random Forest, XGBoost) ومقارنة الأداء.
+The project includes data preprocessing, exploratory data analysis (EDA), feature engineering, machine learning model training, and performance evaluation.
 
-## مميزات
+---
 
-- تنظيف وتحليل البيانات الاستكشافي (EDA)
-- هندسة ميزات (feature engineering)
-- تدريب ونشر نماذج تصنيف
-- تقييم النماذج باستخدام دقة، مصفوفة الارتباك، AUC-ROC، F1-score
+## 📂 Dataset
 
-## هيكل المجلدات (مقترح)
+**Dataset:** Telco Customer Churn
 
-- data/                : ملفات البيانات (خام ومعالجة)
-- notebooks/           : دفاتر Jupyter للـ EDA والتجارب
-- src/                 : شفرة المصدر (تحميل البيانات، تجهيزها، تدريب النموذج)
-- models/              : النماذج المدربة والأوزان
-- reports/             : تقارير ونتائج التدريب والـ plots
-- README.md            : هذا الملف
+The dataset contains information about customers, including:
 
-> ملاحظة: لا تحتفظ بملفات البيانات الكبيرة في المستودع، استعمل .gitignore أو ربطها بمستودع بيانات خارجي.
+- Customer demographics
+- Services subscribed
+- Contract type
+- Payment method
+- Monthly and total charges
+- Customer tenure
+- Churn status (Target Variable)
 
-## المتطلبات (Requirements)
+---
 
-أنشئ بيئة افتراضية ثم ثبّت الحزم المطلوبة (مثال):
+## 🎯 Objectives
 
-```bash
-python -m venv venv
-source venv/bin/activate  # على macOS/Linux
-venv\Scripts\activate     # على Windows
-pip install -r requirements.txt
+- Clean and preprocess the dataset
+- Explore customer behavior using EDA
+- Build machine learning classification models
+- Evaluate model performance
+- Extract business insights to reduce customer churn
+
+---
+
+## 🛠️ Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Google Colab
+
+---
+
+## 📊 Exploratory Data Analysis
+
+The analysis includes:
+
+- Missing value handling
+- Data type conversion
+- Duplicate checking
+- Churn distribution
+- Correlation analysis
+- Customer behavior visualization
+
+---
+
+## 🤖 Machine Learning Models
+
+The following models were trained and evaluated:
+
+- Logistic Regression
+- Decision Tree Classifier
+
+---
+
+## 📈 Model Evaluation
+
+Evaluation metrics include:
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC Curve
+- AUC Score
+- Confusion Matrix
+
+---
+
+## 📷 Project Visualizations
+
+Include screenshots such as:
+
+- Churn Distribution
+- Correlation Heatmap
+- Confusion Matrix
+- ROC Curve
+- Feature Importance
+
+Place them inside the **images/** folder.
+
+Example:
+
+![Confusion Matrix](images/confusion_matrix.png)
+
+---
+
+## 💡 Business Insights
+
+- Customers with month-to-month contracts are more likely to churn.
+- Long-term customers tend to stay with the company.
+- Higher monthly charges are associated with a higher churn rate.
+- Contract type and tenure are among the most important factors influencing churn.
+
+---
+
+## 🚀 Future Improvements
+
+- Apply Random Forest and XGBoost
+- Perform Hyperparameter Tuning
+- Handle class imbalance
+- Deploy the model using Streamlit or Flask
+
+---
+
+## 📁 Project Structure
+
+```
+customer-churn-prediction/
+│
+├── data/
+├── images/
+├── notebook/
+├── README.md
+└── requirements.txt
 ```
 
-محتوى مبدئي مقترح لملف requirements.txt:
+---
 
-```
-pandas
-numpy
-scikit-learn
-xgboost
-matplotlib
-seaborn
-jupyter
-joblib
-```
+## 👨‍💻 Author
 
-## كيفية التشغيل
+**Youssef Mohamed**
 
-1. ضع ملفات البيانات في المجلد `data/` (مثال: train.csv, test.csv).
-2. شغّل دفاتر Jupyter في `notebooks/` للـ EDA:
+Computer Science Student
 
-```bash
-jupyter lab
-```
-
-3. لتشغيل التدريب من سكربت:
-
-```bash
-python src/train.py --data_path data/train.csv --output_dir models/
-```
-
-4. لتشغيل التقييم:
-
-```bash
-python src/evaluate.py --model_path models/best_model.pkl --test_path data/test.csv
-```
-
-5. للتنبؤ على عينات جديدة:
-
-```bash
-python src/predict.py --model_path models/best_model.pkl --input data/new_customers.csv --output predictions.csv
-```
-
-## نتائج نموذجية
-
-- أضف هنا جدول أو وصف مختصر لأفضل نموذج والـ metrics (مثال: RF: AUC=0.85, F1=0.67)
-
-## ملاحظات حول البيانات
-
-- تأكد من التعامل مع القيم المفقودة
-- استعمل التوزيع الزمني عند وجوده (مثال: تجزئة تدريب/اختبار زمنياً)
-- تعامل مع الفئات غير المتوازنة (undersampling/oversampling/SMOTE)
-
-## كيفية المساهمة
-
-1. افتح issue لوصف المشكلة أو الميزة.
-2. اخلق فرع جديد `feature/...` أو `fix/...` ثم أرسل Pull Request.
-3. اشرح التغييرات وأضف أمثلة إن أمكن.
-
-## الرخصة
-
-ضع هنا نوع الرخصة (مثال: MIT). يمكنك إضافة ملف LICENSE بالمستودع.
-
-## تواصل
-
-- صاحب المشروع: @youssef151222
-- البريد (اختياري): example@example.com
+Interested in Artificial Intelligence, Machine Learning, and Data Analysis.
